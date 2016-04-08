@@ -1,0 +1,66 @@
+@import "node_modules/bourbon/app/assets/stylesheets/bourbon";
+
+body {
+	background-color: #000000;
+}
+
+.content{
+	color: #000000;
+}
+
+.terminal-text {
+	display: inline;
+	position: absolute;
+	right: 50%;
+	top: 50%;
+	margin-right: -5px;
+
+	font-family: monospace;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 18px;
+	letter-spacing: 2px;
+
+	background-color: #000000;
+
+	@include transition(opacity 2s);
+}
+
+.cursor {
+	display: inline;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 1px;
+
+	width: 0;
+	box-sizing: border-box;
+
+	border-left: 10px solid #ffffff;
+
+	background: #000000;
+	overflow: hidden;
+
+	opacity: 1;
+
+	@include transition(transform 2s);
+	@include animation(typing 6s steps(17, end), blinking 1s step-end 4 infinite);
+	//TODO: implement blinking 1s step-end 4 infinite
+}
+
+@include keyframes(typing) {
+  from, to { width: 100%; }
+	25% { width: 0; }
+	50% { width: 0; }
+	100% { width: 0; }
+}
+
+@include keyframes(blinking) {
+  from, to { border-color: transparant }
+	50% { border-color: #000000 };
+}
+
+.content{
+	opacity: 1;
+	color: #000000;
+}
